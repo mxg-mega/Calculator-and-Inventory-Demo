@@ -1,3 +1,4 @@
+import "package:api_learn/mini_game_screen.dart";
 import "package:api_learn/providers/active_screen_provider.dart";
 import "package:api_learn/providers/data_provider.dart";
 import "package:flutter/material.dart";
@@ -7,7 +8,7 @@ import "calculator_screen.dart";
 import "inventory_screen.dart";
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,15 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 screenProvider.changeTitle(inventory);
                 screenProvider.changeActiveScreen(const InventoryScreen());
+              },
+            ),
+            ListTile(
+              title: const Text("MiniGame"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const MiniGameScreen()
+                )
+                );
               },
             ),
           ],
