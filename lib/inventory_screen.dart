@@ -13,7 +13,7 @@ class InventoryScreen extends StatelessWidget {
         builder: (context, dataProvider, child) {
           // Show a loading indicator if data is being fetched
           if (dataProvider.isLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           // Display an error message if there was an error during the API call
@@ -23,7 +23,7 @@ class InventoryScreen extends StatelessWidget {
 
           // Display a message if the data is empty or null
           if (dataProvider.data == null || dataProvider.data!.isEmpty) {
-            return Center(child: Text('No products available'));
+            return const Center(child: Text('No products available'));
           }
 
           // If data is present, display it in a ListView

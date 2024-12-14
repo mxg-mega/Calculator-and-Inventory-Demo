@@ -45,7 +45,7 @@ class NumButton extends StatelessWidget{
         else if (button == '='){
           providerDisplay.calculate();
         }
-        else if ((['+', '-', 'X', '/']).contains(button)) {
+        else if ((['+', '-', 'x', '/']).contains(button)) {
           providerDisplay.inputOperator(button);
         }
         else

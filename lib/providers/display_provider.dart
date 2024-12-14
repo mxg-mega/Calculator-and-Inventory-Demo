@@ -1,8 +1,7 @@
-
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-class DisplayProvider extends ChangeNotifier{
+class DisplayProvider extends ChangeNotifier {
   String _display = '0';
   String _firstNum = '';
   String _secNum = '';
@@ -11,8 +10,8 @@ class DisplayProvider extends ChangeNotifier{
 
   String get display => _display;
 
-  void getInput(String newNumber){
-    if (_firstNum.isEmpty){
+  void getInput(String newNumber) {
+    if (_firstNum.isEmpty) {
       _firstNum += newNumber;
       _display = _firstNum;
       notifyListeners();
@@ -23,16 +22,17 @@ class DisplayProvider extends ChangeNotifier{
     }
   }
 
-  void inputOperator(String op){
-    if (_firstNum.isNotEmpty && _secNum.isNotEmpty && (result != 0)){
+  void inputOperator(String op) {
+    if (_firstNum.isNotEmpty && _secNum.isNotEmpty && (result != 0)) {
       _firstNum = result.toString();
       _secNum = '';
     }
     _operator = op;
-    _display += ' ' + op + ' ';
+    _display += ' $op ';
     notifyListeners();
   }
-  void clear(){
+
+  void clear() {
     _display = '0';
     _firstNum = '';
     _secNum = '';
@@ -40,23 +40,23 @@ class DisplayProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  void calculate(){
+  void calculate() {
     double num1 = 0;
     double num2 = 0;
 
-    if (_firstNum.isNotEmpty && _secNum.isNotEmpty && _operator.isNotEmpty){
+    if (_firstNum.isNotEmpty && _secNum.isNotEmpty && _operator.isNotEmpty) {
       num1 = double.parse(_firstNum);
       num2 = double.parse(_secNum);
     }
 
-    switch (_operator){
+    switch (_operator) {
       case '+':
         result = num1 + num2;
         break;
       case '-':
         result = num1 - num2;
         break;
-      case 'X':
+      case 'x':
         result = num1 * num2;
         break;
       case '/':
@@ -66,19 +66,18 @@ class DisplayProvider extends ChangeNotifier{
     _display = result.toString();
     notifyListeners();
   }
-
 }
 
-class CounterProvider extends ChangeNotifier{
+class CounterProvider extends ChangeNotifier {
   int counter = 0;
 
-  void Increment(){
-    counter ++;
+  void Increment() {
+    counter++;
     notifyListeners();
   }
 
-  void decrement(){
-    counter --;
+  void decrement() {
+    counter--;
     notifyListeners();
   }
 }
